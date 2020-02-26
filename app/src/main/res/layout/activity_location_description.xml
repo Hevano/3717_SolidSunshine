@@ -120,7 +120,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.chip.Chip
+    <Button
         android:id="@+id/chip"
         android:layout_width="54dp"
         android:layout_height="54dp"
