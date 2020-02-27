@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".Activity2">
+    tools:context=".SearchActivity">
 
 
     <EditText
@@ -120,8 +120,10 @@
         android:background="@color/colorPrimary" />
 
     <ListView
+        android:id="@+id/searchResults"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:entries="@array/tempLocations"/>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

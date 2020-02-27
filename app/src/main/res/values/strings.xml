@@ -8,4 +8,7 @@
     <string name="pingpong">Pingpong</string>
     <string name="tennis">Tennis</string>
     <string name="explore">Explore Surrey</string>
+    <string-array name="tempLocations">
+        <item>Location name</item>
+    </string-array>
 </resources>

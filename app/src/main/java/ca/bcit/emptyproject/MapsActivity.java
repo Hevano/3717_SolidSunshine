@@ -2,7 +2,9 @@ package ca.bcit.emptyproject;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -43,5 +45,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng park = new LatLng(49.1384481,-122.8179453);
         mMap.addMarker(new MarkerOptions().position(park).title("Chimney Heights Park"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(park));
+    }
+
+    public void onSearchButton(View v){
+        Intent i = new Intent(MapsActivity.this, SearchActivity.class);
+        startActivity(i);
     }
 }

@@ -31,10 +31,10 @@
         android:id="@+id/btnSearch"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:textSize="20sp"
-        android:text="🔍"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        />
+        android:onClick="onSearchButton"
+        android:text="🔍"
+        android:textSize="20sp" />
 
 </RelativeLayout>
