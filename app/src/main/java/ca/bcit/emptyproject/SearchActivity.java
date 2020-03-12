@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
@@ -22,13 +23,16 @@ public class SearchActivity extends AppCompatActivity {
     private DataAdapter dataAdapter;
     List<Data> lis= new ArrayList<>();
     private ListView listView;
+    EditText search ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         ListView v = findViewById(R.id.searchResults);
-        lis = getData();
+        search = findViewById(R.id.search);
+        //init();
+
         v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -44,7 +48,7 @@ public class SearchActivity extends AppCompatActivity {
         }
         );
 
-init();
+
     }
     public void init() {
         listView = findViewById(R.id.searchResults);
@@ -58,7 +62,24 @@ init();
         Log.d("MainActivity", "Json: " + jsonString);
         Gson gson = new Gson();
         BaseData baseStudent = gson.fromJson(jsonString, BaseData.class);
-        return  baseStudent.getData();
+        List<Data> filter;
+        List<Data> filtered = new ArrayList<>();
+        filter = baseStudent.getData();
+        String se = search.getText().toString().toLowerCase();
+        Data data;
+        for(int x = 0; x <filter.size();x++){
+            data = filter.get(x);
+            String loc = data.getLOCATION();
+            String typ = data.getFACILITY_TYPE();
+            String name = data.getNAME();
+            String web = data.getWEBLINK();
+            if(!(!(loc.contains(se)) && !(typ.contains(se)) && !(name.contains(se)) && !(web.contains(se)))){
+               filtered.add(data);
+            }
+
+        }
+        lis = filtered;
+        return filtered;
     }
 
     /* Get File in Assets Folder */
@@ -79,4 +100,8 @@ init();
         return json;
     }
 
+    public void find(View view) {
+        init();
+       // lis = getData();
+    }
 }

@@ -11,15 +11,22 @@
     <EditText
         android:id="@+id/search"
         style="@android:style/Widget.Material.EditText"
-        android:layout_width="match_parent"
+        android:layout_width="302dp"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:ems="10"
-        android:hint="@string/search"
         android:gravity="center_horizontal"
+        android:hint="@string/search"
         android:inputType="textPersonName"
         android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:autofillHints="" />
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="find"
+        android:text="Search" />
 
     <TextView
         android:id="@+id/explore_surrey"
