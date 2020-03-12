@@ -20,6 +20,7 @@ import java.util.List;
 public class SearchActivity extends AppCompatActivity {
     private final static String JSON_FILE = "data.json";
     private DataAdapter dataAdapter;
+    List<Data> lis= new ArrayList<>();
     private ListView listView;
 
     @Override
@@ -27,10 +28,17 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         ListView v = findViewById(R.id.searchResults);
+        lis = getData();
         v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(SearchActivity.this, LocationDescription.class);
+                Data d = lis.get(position);
+              //  Log.d("HEllo",d.getLOCATION());
+                i.putExtra("location", d.getLOCATION());
+                i.putExtra("type", d.getFACILITY_TYPE());
+                i.putExtra("link",d.getWEBLINK());
+                i.putExtra("name", d.getNAME());
                 startActivity(i);
             }
         }
