@@ -7,6 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".LocationDescription">
 
+
+
     <TextView
         android:id="@+id/name"
         android:layout_width="109dp"
@@ -21,6 +23,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
     <TextView
         android:id="@+id/address"
         android:layout_width="218dp"
@@ -29,6 +33,14 @@
         android:layout_marginBottom="628dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/showOnMapButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_google_maps_pin"
+        app:layout_constraintTop_toTopOf="@+id/address"
+        app:layout_constraintStart_toEndOf="@+id/address"/>
 
     <LinearLayout
         android:id="@+id/linearLayout5"

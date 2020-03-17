@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -24,6 +26,7 @@ public class SearchActivity extends AppCompatActivity {
     List<Data> lis= new ArrayList<>();
     private ListView listView;
     EditText search ;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +51,17 @@ public class SearchActivity extends AppCompatActivity {
         }
         );
 
-
+        mAuth = FirebaseAuth.getInstance();
     }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+    }
+
     public void init() {
         listView = findViewById(R.id.searchResults);
         dataAdapter = new DataAdapter(SearchActivity.this, getData());

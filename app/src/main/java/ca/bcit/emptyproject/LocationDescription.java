@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,7 +22,7 @@ public class LocationDescription extends AppCompatActivity {
         String name  = bundle.getString("name");
         String link = bundle.getString("link");
         String type = bundle.getString("type");
-        String loc = bundle.getString("location");
+        final String loc = bundle.getString("location");
         TextView n = findViewById(R.id.name);
         n.setText(name);
         TextView a = findViewById(R.id.address);
@@ -35,6 +36,15 @@ public class LocationDescription extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent i = new Intent(LocationDescription.this, SignUp.class);
+                startActivity(i);
+            }
+        });
+
+        ImageButton goTo = findViewById(R.id.showOnMapButton);
+        goTo.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent i = new Intent(LocationDescription.this, MapsActivity.class);
+                i.putExtra("Address", loc);
                 startActivity(i);
             }
         });
