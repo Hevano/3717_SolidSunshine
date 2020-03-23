@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -37,18 +38,18 @@ public class SearchActivity extends AppCompatActivity {
         //init();
 
         v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(SearchActivity.this, LocationDescription.class);
-                Data d = lis.get(position);
-              //  Log.d("HEllo",d.getLOCATION());
-                i.putExtra("location", d.getLOCATION());
-                i.putExtra("type", d.getFACILITY_TYPE());
-                i.putExtra("link",d.getWEBLINK());
-                i.putExtra("name", d.getNAME());
-                startActivity(i);
-            }
-        }
+                                     @Override
+                                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                         Intent i = new Intent(SearchActivity.this, LocationDescription.class);
+                                         Data d = lis.get(position);
+                                         //  Log.d("HEllo",d.getLOCATION());
+                                         i.putExtra("location", d.getLOCATION());
+                                         i.putExtra("type", d.getFACILITY_TYPE());
+                                         i.putExtra("link",d.getWEBLINK());
+                                         i.putExtra("name", d.getNAME());
+                                         startActivity(i);
+                                     }
+                                 }
         );
 
         mAuth = FirebaseAuth.getInstance();
@@ -64,12 +65,12 @@ public class SearchActivity extends AppCompatActivity {
 
     public void init() {
         listView = findViewById(R.id.searchResults);
-        dataAdapter = new DataAdapter(SearchActivity.this, getData());
+        dataAdapter = new DataAdapter(SearchActivity.this, getData(search.getText().toString().toLowerCase()));
         listView.setAdapter(dataAdapter);
     }
 
     /* Convert JSON String to BaseStudent Model via GSON */
-    public List<Data> getData() {
+    public List<Data> getData(String se) {
         String jsonString = getAssetsJSON(JSON_FILE);
         Log.d("MainActivity", "Json: " + jsonString);
         Gson gson = new Gson();
@@ -77,16 +78,16 @@ public class SearchActivity extends AppCompatActivity {
         List<Data> filter;
         List<Data> filtered = new ArrayList<>();
         filter = baseStudent.getData();
-        String se = search.getText().toString().toLowerCase();
+        //String se = search.getText().toString().toLowerCase();
         Data data;
         for(int x = 0; x <filter.size();x++){
             data = filter.get(x);
-            String loc = data.getLOCATION();
-            String typ = data.getFACILITY_TYPE();
-            String name = data.getNAME();
-            String web = data.getWEBLINK();
+            String loc = data.getLOCATION().toLowerCase();
+            String typ = data.getFACILITY_TYPE().toLowerCase();
+            String name = data.getNAME().toLowerCase();
+            String web = data.getWEBLINK().toLowerCase();
             if(!(!(loc.contains(se)) && !(typ.contains(se)) && !(name.contains(se)) && !(web.contains(se)))){
-               filtered.add(data);
+                filtered.add(data);
             }
 
         }
@@ -114,6 +115,16 @@ public class SearchActivity extends AppCompatActivity {
 
     public void find(View view) {
         init();
-       // lis = getData();
+        // lis = getData();
     }
+
+    public void TagButtonClicked(View view) {
+        Button b = (Button) view;
+        String id = b.getText().toString().toLowerCase();
+        listView = findViewById(R.id.searchResults);
+        dataAdapter = new DataAdapter(SearchActivity.this, getData(id));
+        listView.setAdapter(dataAdapter);
+
+    }
+
 }

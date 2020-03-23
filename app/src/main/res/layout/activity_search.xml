@@ -43,37 +43,40 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/tag_soccer"
+            android:id="@+id/tag_school"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:textAllCaps="false"
+            android:onClick="TagButtonClicked"
             android:background="@drawable/button_custom"
             android:padding="5dp"
-            android:text="@string/soccer" />
+            android:text="@string/school" />
 
         <Button
-            android:id="@+id/tag_basketball"
+            android:id="@+id/tag_tennis"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
+            android:onClick="TagButtonClicked"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:textAllCaps="false"
             android:background="@drawable/button_custom"
             android:padding="5dp"
-            android:text="@string/basketball" />
+            android:text="@string/tennis" />
 
         <Button
-            android:id="@+id/tag_baseball"
+            android:id="@+id/tag_park"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
+            android:onClick="TagButtonClicked"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:textAllCaps="false"
             android:background="@drawable/button_custom"
             android:padding="5dp"
-            android:text="@string/baseball" />
+            android:text="@string/park" />
     </LinearLayout>
 
     <LinearLayout
@@ -82,37 +85,41 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/tag_badminton"
+            android:id="@+id/tag_hall"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            android:onClick="TagButtonClicked"
             android:layout_margin="10dp"
             android:textAllCaps="false"
             android:background="@drawable/button_custom"
             android:padding="5dp"
-            android:text="@string/badminton" />
+            android:text="@string/hall" />
 
         <Button
-            android:id="@+id/tag_pingpong"
+            android:id="@+id/tag_golf"
             style="@style/Widget.AppCompat.Button.Borderless"
+            android:onClick="TagButtonClicked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:textAllCaps="false"
             android:background="@drawable/button_custom"
             android:padding="5dp"
-            android:text="@string/pingpong" />
+            android:text="@string/golf" />
 
         <Button
-            android:id="@+id/tag_tennis"
+            android:id="@+id/tag_games"
             style="@style/Widget.AppCompat.Button.Borderless"
+            android:onClick="TagButtonClicked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:textAllCaps="false"
             android:background="@drawable/button_custom"
             android:padding="5dp"
-            android:text="@string/tennis" />
+            android:text="@string/games" />
     </LinearLayout>
 
     <View
