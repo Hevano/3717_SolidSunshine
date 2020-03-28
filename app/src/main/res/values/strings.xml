@@ -10,7 +10,15 @@
     <string name="explore">Explore Surrey</string>
     <string name="login">Login</string>
     <string name="signup">Signup</string>
+    <string name="website">Website</string>
+    <string name="type">Type</string>
+    <string name="location">Location</string>
+    <string name="name">Name</string>
+    <string name="meet_up">MEET UP</string>
     <string-array name="tempLocations">
         <item>Location name</item>
+    </string-array>
+    <string-array name="meetUpList">
+        <item>Meet Up List</item>
     </string-array>
 </resources>

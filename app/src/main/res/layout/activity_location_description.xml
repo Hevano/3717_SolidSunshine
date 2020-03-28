@@ -1,183 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/meetup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".LocationDescription">
 
-
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="109dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="234dp"
-        app:layout_constraintBottom_toTopOf="@+id/type"
-        app:layout_constraintEnd_toEndOf="@+id/address"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-    <TextView
-        android:id="@+id/address"
-        android:layout_width="218dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginBottom="628dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageButton
-        android:id="@+id/showOnMapButton"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_google_maps_pin"
-        app:layout_constraintTop_toTopOf="@+id/address"
-        app:layout_constraintStart_toEndOf="@+id/address"/>
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
 
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="319dp"
-        android:layout_height="101dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/type"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address">
+        <TextView
+            android:id="@+id/NameTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/name"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="16dp" />
 
-        <Button
-            android:id="@+id/tag1"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="8dp"
-            android:text="Button" />
 
-        <Button
-            android:id="@+id/tag2"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:text="Button" />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            tools:layout_editor_absoluteX="225dp"
+            tools:layout_editor_absoluteY="16dp" />
 
-        <Button
-            android:id="@+id/tag3"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginStart="10dp"
-            android:text="Button" />
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/type"
-        android:layout_width="208dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="184dp"
-        android:layout_marginBottom="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/webDes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
-
-    <TextView
-        android:id="@+id/webDes"
-        android:layout_width="66dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="27dp"
-        android:text="Website"
-        app:layout_constraintBottom_toTopOf="@+id/phone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type" />
-
-    <EditText
-        android:id="@+id/phone"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="22dp"
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintBottom_toTopOf="@+id/email"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/webDes" />
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/email"
+        <TextView
+            android:id="@+id/locDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/location"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="84dp" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            tools:layout_editor_absoluteX="24dp"
+            tools:layout_editor_absoluteY="84dp" />
+
+        <ImageButton
+            android:id="@+id/showOnMapButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_google_maps_pin"
+            tools:layout_editor_absoluteX="335dp"
+            tools:layout_editor_absoluteY="84dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="224dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/TypeTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/type"
+            tools:layout_editor_absoluteX="44dp"
+            tools:layout_editor_absoluteY="180dp" />
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="208dp"
+            android:layout_height="29dp"
+            android:layout_marginLeft="20dp"
+            tools:layout_editor_absoluteX="200dp"
+            tools:layout_editor_absoluteY="244dp" />
 
-    <ProgressBar
-        android:id="@+id/traffic"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="103dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/webDes"
+            android:layout_width="66dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="5dp"
+            android:text="@string/website"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="273dp" />
+        <TextView
+            android:id="@+id/link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="227dp"
+            tools:layout_editor_absoluteY="196dp" />
+
+    </LinearLayout>
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ListView
+        android:layout_width="match_parent"
+        android:entries="@array/meetUpList"
+        android:layout_height="wrap_content">
+
+    </ListView>
 
     <Button
         android:id="@+id/chip"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/NameTag"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="16dp"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/meet_up"
+        tools:layout_editor_absoluteX="321dp"
+        tools:layout_editor_absoluteY="629dp" />
 
-    <TextView
-        android:id="@+id/locDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="68dp"
-        android:text="Location"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/NameTag" />
-
-    <TextView
-        android:id="@+id/TypeTag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="276dp"
-        android:text="Type"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.006"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/link"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="336dp"
-        android:layout_marginEnd="144dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
