@@ -7,12 +7,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class LocationDescription extends AppCompatActivity {
 
+    MeetUp meet;
+    TextView n;
+    TextView a;
+    TextView t;
+    TextView l;
+    DatabaseReference ref ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,34 +40,40 @@ public class LocationDescription extends AppCompatActivity {
         String link = bundle.getString("link");
         String type = bundle.getString("type");
         final String loc = bundle.getString("location");
-        TextView n = findViewById(R.id.name);
+        n = findViewById(R.id.name);
         n.setText(name);
-        TextView a = findViewById(R.id.address);
+        a = findViewById(R.id.address);
         a.setText(loc);
-        TextView t = findViewById(R.id.type);
+        t = findViewById(R.id.type);
         t.setText(type);
-        TextView l = findViewById(R.id.link);
+        l = findViewById(R.id.link);
         l.setText(link);
-
-        Button b = findViewById(R.id.chip);
-        b.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Intent i = new Intent(LocationDescription.this, SignUp.class);
-                startActivity(i);
-            }
-        });
+        ref = FirebaseDatabase.getInstance().getReference().child("MeetUp");
 
         ImageButton goTo = findViewById(R.id.showOnMapButton);
         goTo.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i = new Intent(LocationDescription.this, MapsActivity.class);
-                i.putExtra("Address", loc);
-                startActivity(i);
+
             }
         });
     }
 
 
 
+    public void meet_up(View view) {
 
+        CalendarView cv = findViewById(R.id.calendarView);
+        SimpleDateFormat ss = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = new Date(cv.getDate());
+        String currentdate= ss.format(date);
+        meet = new MeetUp();
+        meet.setMeetDate(currentdate);
+        meet.setMeetLoc(a.getText().toString());
+        meet.setMeetLoc(n.getText().toString());
+        meet.setMeetType(t.getText().toString());
+        meet.setMeetWeb(l.getText().toString());
+        ref.push().setValue(meet);
+        Toast toast = Toast.makeText(LocationDescription.this, "Meet Up created Successfully", Toast.LENGTH_SHORT);
+        toast.show();
+    }
 }
