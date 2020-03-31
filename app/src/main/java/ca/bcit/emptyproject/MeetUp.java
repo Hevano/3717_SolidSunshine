@@ -9,6 +9,9 @@ public class MeetUp {
     private String MeetType;
     private String MeetDate;
 
+    public MeetUp() {
+    }
+
     public String getMeetName() {
         return MeetName;
     }

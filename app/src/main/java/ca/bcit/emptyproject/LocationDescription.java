@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -30,6 +32,8 @@ public class LocationDescription extends AppCompatActivity {
     TextView t;
     TextView l;
     DatabaseReference ref ;
+    FirebaseUser user;
+    String userid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,8 @@ public class LocationDescription extends AppCompatActivity {
         t.setText(type);
         l = findViewById(R.id.link);
         l.setText(link);
+        user= FirebaseAuth.getInstance().getCurrentUser();
+        userid =user.getUid();
         ref = FirebaseDatabase.getInstance().getReference().child("MeetUp");
 
         ImageButton goTo = findViewById(R.id.showOnMapButton);
@@ -72,7 +78,7 @@ public class LocationDescription extends AppCompatActivity {
         meet.setMeetLoc(n.getText().toString());
         meet.setMeetType(t.getText().toString());
         meet.setMeetWeb(l.getText().toString());
-        ref.push().setValue(meet);
+        ref.child(userid).push().setValue(meet);
         Toast toast = Toast.makeText(LocationDescription.this, "Meet Up created Successfully", Toast.LENGTH_SHORT);
         toast.show();
     }

@@ -243,4 +243,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                 });
     }
+
+    public void Meet_List(View view) {
+        Intent intent = new Intent(this, Meeting.class);
+        startActivity(intent);
+    }
 }

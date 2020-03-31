@@ -46,8 +46,6 @@ public class DataAdapter extends BaseAdapter {
         tvType = vi.findViewById(R.id.tvType);
         tvWeb = vi.findViewById(R.id.tvWeb);
 
-
-
         tvLocation.setText(data.getLOCATION());
         tvName.setText(data.getNAME());
         tvType.setText(data.getFACILITY_TYPE());
