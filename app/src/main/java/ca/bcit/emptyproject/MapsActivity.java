@@ -39,6 +39,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -64,7 +66,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //Authentication
         mAuth = FirebaseAuth.getInstance();
-        showLoginDialog();
+
 
     }
 
@@ -73,6 +75,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser == null){
+            showLoginDialog();
+        }
         //Log.println(Log.DEBUG, "", currentUser.getUid());
     }
 
@@ -235,6 +240,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             Toast.makeText(MapsActivity.this, "Authentication succeeded.",
                                     Toast.LENGTH_SHORT).show();
                             a.dismiss();
+                            addEmailLookup(user.getEmail(), user.getUid());
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(MapsActivity.this, "Authentication failed.",
@@ -242,6 +248,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         }
                     }
                 });
+    }
+
+    private void addEmailLookup(String email, String uid){
+        DatabaseReference lookup = FirebaseDatabase.getInstance().getReference().child("emailLookup").child(email);
+        lookup.setValue(uid);
     }
 
     public void Meet_List(View view) {

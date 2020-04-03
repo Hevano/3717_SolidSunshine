@@ -8,6 +8,7 @@ public class MeetUp {
     private String MeetWeb;
     private String MeetType;
     private String MeetDate;
+    private int Version;
 
     public MeetUp() {
     }
@@ -53,6 +54,11 @@ public class MeetUp {
     }
 
 
+    public int getVersion() {
+        return Version;
+    }
 
-
+    public void setVersion(int version) {
+        Version = version;
+    }
 }

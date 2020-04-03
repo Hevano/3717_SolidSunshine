@@ -15,6 +15,14 @@
     <string name="location">Location</string>
     <string name="name">Name</string>
     <string name="meet_up">MEET UP</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="remove_email">Remove %1$s from meetup?</string>
+    <string name="shared">Shared with me</string>
+    <string name="email_removed">%1$s removed from meetup</string>
+    <string name="email_added">%1$s added to meetup</string>
+    <string name="email_missing">Could not find user with email %1$s</string>
+    <string name="add_user">Add User</string>
     <string-array name="tempLocations">
         <item>Location name</item>
     </string-array>

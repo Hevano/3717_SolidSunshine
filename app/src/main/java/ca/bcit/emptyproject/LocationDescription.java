@@ -59,7 +59,9 @@ public class LocationDescription extends AppCompatActivity {
         ImageButton goTo = findViewById(R.id.showOnMapButton);
         goTo.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-
+                Intent i = new Intent(LocationDescription.this, MapsActivity.class);
+                i.putExtra("Address", loc);
+                startActivity(i);
             }
         });
     }
@@ -78,6 +80,7 @@ public class LocationDescription extends AppCompatActivity {
         meet.setMeetLoc(n.getText().toString());
         meet.setMeetType(t.getText().toString());
         meet.setMeetWeb(l.getText().toString());
+        meet.setVersion(1);
         ref.child(userid).push().setValue(meet);
         Toast toast = Toast.makeText(LocationDescription.this, "Meet Up created Successfully", Toast.LENGTH_SHORT);
         toast.show();
