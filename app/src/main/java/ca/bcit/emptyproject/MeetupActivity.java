@@ -52,10 +52,8 @@ public class MeetupActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 MeetUp m = dataSnapshot.getValue(MeetUp.class);
-                TextView meetLoc = findViewById(R.id.meetLoc);
-                meetLoc.setText(m.getMeetLoc());
-                TextView meetDate = findViewById(R.id.meetDate);
-                meetDate.setText(m.getMeetDate());
+                TextView meetTitle = findViewById(R.id.meetTitle);
+                meetTitle.setText(getString(R.string.meet_title, m.getMeetLoc(), m.getMeetDate()));
             }
 
             @Override

@@ -64,9 +64,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
+        Button buttonMenu = findViewById(R.id.btnMenu);
+        buttonMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showLoginDialog();
+            }
+        });
+
         //Authentication
         mAuth = FirebaseAuth.getInstance();
-
+        //mAuth.signOut();
 
     }
 
@@ -75,6 +84,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
         if(currentUser == null){
             showLoginDialog();
         }

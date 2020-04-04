@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EmptyProject</string>
+    <string name="app_name">Sports Seeker</string>
     <string name="search">Search</string>
     <string name="games">Games</string>
     <string name="golf">Golf</string>
@@ -23,6 +23,11 @@
     <string name="email_added">%1$s added to meetup</string>
     <string name="email_missing">Could not find user with email %1$s</string>
     <string name="add_user">Add User</string>
+    <string name="my_meetups">My Meetups</string>
+    <string name="meet_loc_label">Location: %1$s</string>
+    <string name="meet_date_label">Date: %1$s</string>
+    <string name="invited">Invited Users</string>
+    <string name="meet_title">Let\'s meet up at %1$s on %2$s</string>
     <string-array name="tempLocations">
         <item>Location name</item>
     </string-array>

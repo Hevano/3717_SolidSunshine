@@ -7,17 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".Meeting">
 
+    <TextView
+        android:id="@+id/my_meetups_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/my_meetups"
+        android:padding="10dp"/>
+
     <ListView
         android:id="@+id/meeting_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_meetups_label"/>
 
     <TextView
         android:id="@+id/shared_with_me_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/shared"
-        android:layout_below="@+id/meeting_list"/>
+        android:layout_below="@+id/meeting_list"
+        android:padding="10dp"/>
 
     <ListView
         android:id="@+id/shared_list"
